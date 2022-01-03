@@ -23,6 +23,7 @@ import java.security.Principal;
 @CrossOrigin
 @RestController
 public class MemberController {
+    //test
 
     @Autowired
     private UserService userService;
