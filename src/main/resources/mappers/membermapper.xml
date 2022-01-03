@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.smple1231.dao.MemberDao">
+    <select id="selectAll" resultType="com.example.smple1231.membervo.ANIMAL_INS">
+        select * from ANIMAL_INS
+    </select>
+
+<select id="selectlist" resultType="com.example.smple1231.membervo.ANIMAL_INS">
+    SELECT * FROM ANIMAL_INS
+        WHERE ANIMAL_ID = #{id}
+</select>
+
+    <insert id="insertani">
+        INSERT INTO ANIMAL_INS(ANIMAL_ID, ANIMAL_TYPE,DATETIME,INTAKE_CONDITION,NAME,SEX_UPON_INTAKE )
+        VALUES(#{ANIMAL_ID}, #{ANIMAL_TYPE}, sysdate, #{INTAKE_CONDITION},#{NAME},#{SEX_UPON_INTAKE})
+    </insert>
+
+    <update id="updateani">
+        UPDATE ANIMAL_INS SET ANIMAL_TYPE = #{aNIMAL_INS.ANIMAL_TYPE},
+                              DATETIME = sysdate,
+                              INTAKE_CONDITION = #{aNIMAL_INS.INTAKE_CONDITION},
+                              NAME =#{aNIMAL_INS.NAME},
+                              SEX_UPON_INTAKE = #{aNIMAL_INS.SEX_UPON_INTAKE}
+                            WHERE ANIMAL_ID = #{id}
+    </update>
+    <delete id="deleteani">
+        delete ANIMAL_INS where ANIMAL_ID = #{id}
+    </delete>
+
+</mapper>
