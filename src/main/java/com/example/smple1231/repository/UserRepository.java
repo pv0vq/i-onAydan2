@@ -7,11 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-//DAO
-//자동으로 Bean 등록이 된다
-//@Repository 생략가능
+
 public interface UserRepository extends JpaRepository<HooMember, Integer> {
 
-	Optional<HooMember> findByUsername(String username);
+	Optional<HooMember> findByUsername(String username); // 시큐리티 Repository
 
 }

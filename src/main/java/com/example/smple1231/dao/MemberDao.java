@@ -8,15 +8,16 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface MemberDao {
-     List<ANIMAL_INS> selectAll();
+public interface MemberDao {  // membermapper.xml와 연결
 
-     ANIMAL_INS selectlist(String id);
+     List<ANIMAL_INS> selectAll(); // 전체 동물 리스트 Dao
 
-     Long insertani(ANIMAL_INS animal_ins);
+     ANIMAL_INS selectlist(String id); // 상세 동물 리스트 Dao
 
-     Long updateani(String id ,ANIMAL_INS aNIMAL_INS);
+     Long insertani(ANIMAL_INS animal_ins); // 동물 추가 Dao
 
-     Long deleteani(String id);
+     Long updateani(String id ,ANIMAL_INS aNIMAL_INS); // 동물 수정 Dao
+
+     Long deleteani(String id); // 동물 삭제 Dao
 
 }
