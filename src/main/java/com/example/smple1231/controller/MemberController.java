@@ -32,8 +32,6 @@ public class MemberController {
         userService.memberjoin(user);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
-    //    @GetMapping("/auth/loginForm")
-//    public String loginForm() {return "user/loginProc";}
-//
+
 
 }
