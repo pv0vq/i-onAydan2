@@ -37,7 +37,5 @@ public class Controller {
     }
 
     @GetMapping("/")
-    public String why(){
-        return "";
-    }
+    public String why(){return "";}
 }

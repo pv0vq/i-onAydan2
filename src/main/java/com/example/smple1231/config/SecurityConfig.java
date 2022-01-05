@@ -30,7 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{ // 시큐리�
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception { // 패스워드 비교
 		auth.userDetailsService(principalDetailService).passwordEncoder(encodePWD());
 	}
-	
+
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception { // 시큐리티 설정
 		http
@@ -49,6 +50,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{ // 시큐리�
 				.logout() // 로그아웃
 				.logoutUrl("/logout")//로그아웃 주소
 				.logoutSuccessUrl("/"); // 로그아웃 성공시 이동 주소
+		http.sessionManagement()
+				.maximumSessions(1) //세션 최대 허용 수
+				.maxSessionsPreventsLogin(false); // false이면 중복 로그인하면 이전 로그인이 풀린다.
 
 
 
