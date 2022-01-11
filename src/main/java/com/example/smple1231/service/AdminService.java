@@ -38,6 +38,22 @@ public class AdminService {
         Optional<HooUser> updateUser = userRepository.findById(id);
         updateUser.ifPresent(selectUser -> { //! = null코딩줄임
             selectUser.setNickname(userDto.getNickname());
+            selectUser.setPhone(userDto.getPhone());
+            selectUser.setAdress(userDto.getAdress());
+            selectUser.setAdressDetail(userDto.getAdressDetail());
+            userRepository.save(selectUser);
+        });
+
+        return "회원수정완료" ;
+    }
+    @Transactional // 회원 수정 서비스
+    public String userIn(UserDto userDto){
+        Optional<HooUser> updateUser = userRepository.findByUsername(userDto.getUsername());
+        updateUser.ifPresent(selectUser -> { //! = null코딩줄임
+            selectUser.setNickname(userDto.getNickname());
+            selectUser.setPhone(userDto.getPhone());
+            selectUser.setAdress(userDto.getAdress());
+            selectUser.setAdressDetail(userDto.getAdressDetail());
             userRepository.save(selectUser);
         });
 
@@ -48,16 +64,7 @@ public class AdminService {
         userRepository.deleteById(id);
         return "회원삭제완료" ;
     }
-    @Transactional // 회원 수정 서비스
-    public String userIn(UserDto userDto){
-        Optional<HooUser> updateUser = userRepository.findByUsername(userDto.getUsername());
-        updateUser.ifPresent(selectUser -> { //! = null코딩줄임
-            selectUser.setNickname(userDto.getNickname());
-            userRepository.save(selectUser);
-        });
 
-        return "회원수정완료" ;
-    }
 
 
 

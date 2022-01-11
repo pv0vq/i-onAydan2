@@ -39,6 +39,9 @@ public class UserService {
 				.username(userDto.getUsername())
 				.password(passwordEncoder.encode(userDto.getPassword()))
 				.nickname(userDto.getNickname())
+				.phone(userDto.getPhone())
+				.adress(userDto.getAdress())
+				.adressDetail(userDto.getAdressDetail())
 				.authorities(Collections.singleton(authority))
 				.activated(true)
 				.build();

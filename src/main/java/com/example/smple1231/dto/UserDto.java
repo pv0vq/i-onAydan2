@@ -5,6 +5,7 @@ import com.example.smple1231.entity.HooUser;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
@@ -30,6 +31,18 @@ public class UserDto {
     @Size(min = 3, max = 50)
     private String nickname;
 
+    @NotNull
+    @Size(min = 3, max = 50)
+    private String phone;
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    private String adress;
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    private String adressDetail;
+
     private Set<AuthorityDto> authorityDtoSet;
 
     public static UserDto from(HooUser user) {
@@ -38,6 +51,9 @@ public class UserDto {
         return UserDto.builder()
                 .username(user.getUsername())
                 .nickname(user.getNickname())
+                .phone(user.getPhone())
+                .adress(user.getAdress())
+                .adressDetail(user.getAdressDetail())
                 .authorityDtoSet(user.getAuthorities().stream()
                         .map(authority -> AuthorityDto.builder().authorityName(authority.getAuthorityName()).build())
                         .collect(Collectors.toSet()))

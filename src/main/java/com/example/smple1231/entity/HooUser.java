@@ -33,6 +33,15 @@ public class HooUser {
     @Column(name = "nickname", length = 50)
     private String nickname;
 
+    @Column(name = "phone", length = 50)
+    private String phone;
+
+    @Column(name = "adress", length = 50)
+    private String adress;
+
+    @Column(name = "adressDetail", length = 50)
+    private String adressDetail;
+
     @JsonIgnore
     @Column(name = "activated")
     private boolean activated;
