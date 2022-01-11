@@ -35,7 +35,7 @@ public class AdminService {
 
     @Transactional // 회원 수정 서비스
     public String userput(Long id, UserDto userDto){
-        Optional<HooUser> updateUser = userRepository.findById(id);
+        Optional<HooUser> updateUser = userRepository.findById(id); //id로 조회
         updateUser.ifPresent(selectUser -> { //! = null코딩줄임
             selectUser.setNickname(userDto.getNickname());
             selectUser.setPhone(userDto.getPhone());
@@ -48,7 +48,7 @@ public class AdminService {
     }
     @Transactional // 회원 수정 서비스
     public String userIn(UserDto userDto){
-        Optional<HooUser> updateUser = userRepository.findByUsername(userDto.getUsername());
+        Optional<HooUser> updateUser = userRepository.findByUsername(userDto.getUsername()); // Username으로 조회
         updateUser.ifPresent(selectUser -> { //! = null코딩줄임
             selectUser.setNickname(userDto.getNickname());
             selectUser.setPhone(userDto.getPhone());
@@ -59,7 +59,7 @@ public class AdminService {
 
         return "회원수정완료" ;
     }
-    @Transactional // 회원 수정 서비스
+    @Transactional // 회원 삭제 서비스
     public String userdel(Long id){
         userRepository.deleteById(id);
         return "회원삭제완료" ;

@@ -1,6 +1,5 @@
 package com.example.smple1231.service;
 
-import com.example.smple1231.dao.MemberDao;
 import com.example.smple1231.membervo.AnimalIns;
 import com.example.smple1231.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,6 @@ public class MemberService {
 
     @Autowired
     private  AnimalRepository animalRepository;
-
-    private MemberDao memberDao;
-    public MemberService(MemberDao memberDao) {this.memberDao = memberDao;}
 
     @Transactional
     public List<AnimalIns> aniAllService(){ //동물 리스트 조회 서비스

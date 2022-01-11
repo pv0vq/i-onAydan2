@@ -7,6 +7,6 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthorityDto {
+public class AuthorityDto { // 권한 dto
     private String authorityName;
 }

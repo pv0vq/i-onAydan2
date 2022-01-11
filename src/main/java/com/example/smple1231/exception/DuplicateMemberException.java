@@ -1,6 +1,7 @@
 package com.example.smple1231.exception;
 
-public class DuplicateMemberException extends RuntimeException {
+public class DuplicateMemberException extends RuntimeException { //예외처리
+
     public DuplicateMemberException() {
         super();
     }

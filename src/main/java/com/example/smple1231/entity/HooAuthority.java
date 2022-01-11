@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class HooAuthority {
+public class HooAuthority { // 권한 Entity
 
     @Id
     @Column(name = "authority_name", length = 50)

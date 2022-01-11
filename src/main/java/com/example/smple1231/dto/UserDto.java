@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+public class UserDto { //userDto
 
     @NotNull
     @Size(min = 3, max = 50)

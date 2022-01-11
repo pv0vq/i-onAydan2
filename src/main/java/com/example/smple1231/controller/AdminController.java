@@ -40,19 +40,21 @@ public class AdminController {
         return  ResponseEntity.ok(adminService.userput(id, userDto));
     }
 
-    @DeleteMapping("/deleteuser/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN')") // ADMIN만 허용
-    public ResponseEntity<String> userdel(@PathVariable("id") Long id)
-    {
-        return  ResponseEntity.ok(adminService.userdel(id));
-    }
-
     @PutMapping("/HoouserIns") // 관리자 권한으로 맴버 수정
     @PreAuthorize("hasAnyRole('ADMIN')") // ADMIN만 허용
     public ResponseEntity<String> userIn(@RequestBody UserDto userDto)
     {
         return  ResponseEntity.ok(adminService.userIn(userDto));
     }
+
+    @DeleteMapping("/deleteuser/{id}") // 관리자 권한으로 맴버 삭제
+    @PreAuthorize("hasAnyRole('ADMIN')") // ADMIN만 허용
+    public ResponseEntity<String> userdel(@PathVariable("id") Long id)
+    {
+        return  ResponseEntity.ok(adminService.userdel(id));
+    }
+
+
 
 
 }
