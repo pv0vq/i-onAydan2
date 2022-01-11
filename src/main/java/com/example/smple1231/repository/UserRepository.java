@@ -1,15 +1,21 @@
 package com.example.smple1231.repository;
 
 
-import com.example.smple1231.auth.PrincipalDetail;
-import com.example.smple1231.membervo.HooMember;
+import com.example.smple1231.entity.HooUser;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 
-public interface UserRepository extends JpaRepository<HooMember, Integer> {
+public interface UserRepository extends JpaRepository<HooUser, Long> {
 
-	Optional<HooMember> findByUsername(String username); // 시큐리티 Repository
+	@EntityGraph(attributePaths = "authorities") //해당쿼리수행시 razy조회말고 eager조회로 받아옴
+	Optional<HooUser> findOneWithAuthoritiesByUsername(String username);// username을 기준으로 유저정보와 권한정보를 가져옴
 
+	@EntityGraph(attributePaths = "authorities") //해당쿼리수행시 razy조회말고 eager조회로 받아옴
+	List<HooUser> findAll();
+
+	Optional<HooUser> findByUsername(String username);
 }

@@ -3,26 +3,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.smple1231.dao.MemberDao">
-    <select id="selectAll" resultType="com.example.smple1231.membervo.ANIMAL_INS">
+    <select id="selectAll" resultType="com.example.smple1231.membervo.AnimalIns">
         select * from ANIMAL_INS
     </select>
 
-<select id="selectlist" resultType="com.example.smple1231.membervo.ANIMAL_INS">
+<select id="selectlist" resultType="com.example.smple1231.membervo.AnimalIns">
     SELECT * FROM ANIMAL_INS
         WHERE ANIMAL_ID = #{id}
 </select>
 
     <insert id="insertani">
-        INSERT INTO ANIMAL_INS(ANIMAL_ID, ANIMAL_TYPE,DATETIME,INTAKE_CONDITION,NAME,SEX_UPON_INTAKE )
-        VALUES(#{ANIMAL_ID}, #{ANIMAL_TYPE}, sysdate, #{INTAKE_CONDITION},#{NAME},#{SEX_UPON_INTAKE})
+        INSERT INTO ANIMAL_INS(ANIMAL_TYPE, CONTEXT, DATETIME, INTAKE_CONDITION, NAME, SEX_UPON_INTAKE)
+        VALUES(#{ANIMAL_TYPE}, #{CONTEXT}, sysdate, #{INTAKE_CONDITION}, #{NAME}, #{SEX_UPON_INTAKE})
     </insert>
 
     <update id="updateani">
         UPDATE ANIMAL_INS SET ANIMAL_TYPE = #{aNIMAL_INS.ANIMAL_TYPE},
+                              CONTEXT = #{aNIMAL_INS.CONTEXT},
                               DATETIME = sysdate,
                               INTAKE_CONDITION = #{aNIMAL_INS.INTAKE_CONDITION},
                               NAME =#{aNIMAL_INS.NAME},
-                              SEX_UPON_INTAKE = #{aNIMAL_INS.SEX_UPON_INTAKE}
+                              SEX_UPON_INTAKE = #{aNIMAL_INS.SEX_UPON_INTAKE},
                             WHERE ANIMAL_ID = #{id}
     </update>
     <delete id="deleteani">
