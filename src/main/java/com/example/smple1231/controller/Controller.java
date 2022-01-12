@@ -37,6 +37,10 @@ public class Controller {
     public ResponseEntity<String> aniput(@PathVariable("id") Long id, @RequestBody AnimalIns animalIns){
         return ResponseEntity.ok(memberService.aniputService(id, animalIns));
     }
+    @PutMapping("/aniputgird") // 동물 리스트 수정 API 주소
+    public ResponseEntity<String> aniput(@RequestBody AnimalIns animalIns){
+        return ResponseEntity.ok(memberService.aniPutGridService(animalIns));
+    }
 
     @DeleteMapping("/anidel/{id}") // 동물 리스트 삭제 API 주소
     public ResponseEntity<String> anidel(@PathVariable("id") Long id){

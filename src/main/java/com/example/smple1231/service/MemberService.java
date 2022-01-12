@@ -51,6 +51,19 @@ public class MemberService {
         animal.setDateTime(new Date());
         return "동물수정완료";
     }
+    @Transactional
+    public String aniPutGridService(AnimalIns animalIns){//동물 수정 서비스
+        AnimalIns animal =  animalRepository.findById(animalIns.getAnimalId()).orElseThrow(()->{
+            return new IllegalArgumentException("글 찾기 실패: 아이디가 없다");}
+        );
+        animal.setAnimalType(animalIns.getAnimalType());
+        animal.setContext(animalIns.getContext());
+        animal.setIntakeCondition(animalIns.getIntakeCondition());
+        animal.setSexUponIntake(animalIns.getSexUponIntake());
+        animal.setName(animalIns.getName());
+        animal.setDateTime(new Date());
+        return "동물수정완료";
+    }
 
     public String anidelService(Long id){// 동물 삭제 서비스
         animalRepository.deleteById(id);
